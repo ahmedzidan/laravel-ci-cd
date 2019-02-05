@@ -24,8 +24,8 @@ services:
       image: mysql:8.0.3
       restart: always
       environment:
-          -"MYSQL_ROOT_PASSWORD=root"
-          -"MYSQL_DATABASE=mydb"
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: mydb
 
   adminer:
     image: adminer
