@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<h1>my first project</h1>
+<h1>my first CI/CD project</h1>
 
 </body>
 </html>

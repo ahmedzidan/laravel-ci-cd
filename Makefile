@@ -8,6 +8,7 @@ build:
 	docker-compose -p ${prefix} -f $(env_config) rm -vsf
 	docker-compose -p ${prefix} -f $(env_config) down -v --remove-orphans
 	docker-compose -p ${prefix} -f $(env_config) up --build -d
+	cp .env.dev .env
 up:
 	docker-compose -p ${prefix} -f $(env_config) up -d
 
