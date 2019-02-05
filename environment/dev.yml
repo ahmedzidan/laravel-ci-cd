@@ -1,0 +1,34 @@
+version: '2.4'
+
+services:
+
+  php-fpm:
+    build:
+      context: ./php-fpm
+    container_name: php-fpm
+    working_dir: /var/www
+    volumes:
+      - ../:/var/www
+
+  nginx:
+    build:
+      context: ./nginx
+    container_name: nginx
+    working_dir: /var/www
+    volumes_from:
+      - php-fpm
+    ports:
+      - 80:80
+
+  dbMysql:
+      image: mysql:8.0.3
+      restart: always
+      environment:
+          -"MYSQL_ROOT_PASSWORD=root"
+          -"MYSQL_DATABASE=mydb"
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
